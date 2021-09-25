@@ -417,7 +417,8 @@ export class GridStack {
     // as the actual value are filled in when _prepareElement() calls el.getAttribute('gs-xyz) before adding the node.
     // So make sure we load any DOM attributes that are not specified in passed in options (which override)
     let domAttr = this._readAttr(el);
-    options = Utils.cloneDeep(options) || {};  // make a copy before we modify in case caller re-uses it
+    //options = Utils.cloneDeep(options) || {};  // make a copy before we modify in case caller re-uses it
+    options = options || {};
     Utils.defaults(options, domAttr);
     let node = this.engine.prepareNode(options);
     this._writeAttr(el, options);

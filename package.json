@@ -19,13 +19,13 @@
     }
   ],
   "scripts": {
-    "build": "yarn --no-progress && rm -rf dist/* && grunt && webpack && tsc --stripInternal && yarn doc",
-    "w": "rm -rf dist/* && grunt && webpack",
-    "t": "rm -rf dist/* && grunt && tsc --stripInternal",
+    "build": "yarn --no-progress && rimraf dist/* && grunt && webpack && tsc --stripInternal && yarn doc",
+    "w": "rimraf dist/* && grunt && webpack",
+    "t": "rimraf dist/* && grunt && tsc --stripInternal",
     "doc": "doctoc ./README.md && doctoc ./doc/README.md && doctoc ./doc/CHANGES.md",
     "test": "yarn lint && karma start karma.conf.js",
     "lint": "tsc --noEmit && eslint src/*.ts",
-    "reset": "rm -rf dist node_modules",
+    "reset": "rimraf dist node_modules",
     "prepublishOnly": "yarn build"
   },
   "keywords": [
@@ -54,7 +54,6 @@
     "url": "https://github.com/gridstack/gridstack.js/issues"
   },
   "homepage": "http://gridstack.github.io/gridstack.js/",
-  "dependencies": {},
   "devDependencies": {
     "@types/jasmine": "^3.5.9",
     "@types/jquery": "^3.5.1",
@@ -86,6 +85,7 @@
     "node-sass": "^5.0.0",
     "protractor": "^7.0.0",
     "puppeteer": "^5.4.1",
+    "rimraf": "^3.0.2",
     "serve-static": "^1.14.1",
     "ts-loader": "^8.0.7",
     "typescript": "^3.7",
